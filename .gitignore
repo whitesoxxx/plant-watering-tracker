@@ -1,0 +1,4 @@
+node_modules/
+plants.db
+plants.json
+*.log

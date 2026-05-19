@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant Watering Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-inner">
+      <h1>🪴 Plant Tracker</h1>
+      <button id="show-add-form" class="btn btn-primary">+ Add Plant</button>
+    </div>
+  </header>
+
+  <!-- Add Plant Form -->
+  <div id="form-overlay" class="hidden">
+    <div class="form-card">
+      <h2>Add a Plant</h2>
+      <form id="add-plant-form">
+        <label>
+          Plant Name <span class="required">*</span>
+          <input type="text" id="input-name" placeholder="e.g. Monstera" required>
+        </label>
+        <label>
+          Emoji
+          <input type="text" id="input-emoji" placeholder="🌱" maxlength="2">
+        </label>
+        <label>
+          Water every <span class="required">*</span>
+          <div class="inline-input">
+            <input type="number" id="input-days" min="1" max="365" placeholder="7" required>
+            <span>days</span>
+          </div>
+        </label>
+        <div class="form-actions">
+          <button type="button" id="cancel-form" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary">Add Plant</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <main>
+    <!-- Dashboard -->
+    <section id="dashboard">
+      <div id="plant-grid"></div>
+      <div id="empty-state" class="hidden">
+        <p>🌵 No plants yet.</p>
+        <p>Add your first plant to get started!</p>
+      </div>
+    </section>
+
+    <!-- History Panel -->
+    <section id="history-panel" class="hidden">
+      <button id="back-btn" class="btn btn-secondary">← Back</button>
+      <h2 id="history-title"></h2>
+      <ul id="history-list"></ul>
+      <p id="history-empty" class="hidden muted">No watering history yet.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
