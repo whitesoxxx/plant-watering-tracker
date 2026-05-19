@@ -29,8 +29,19 @@ Single-file Express backend (`server.js`) serving a plain HTML/CSS/JS frontend f
 
 **Data flow for overdue detection:** `GET /api/plants` LEFT JOINs `watering_logs` to get `MAX(watered_at)` per plant, then `computeStatus` compares `last_watered + water_every_days` against the current time in JS. Plants never watered have `last_watered: null` and are always `is_overdue: true`.
 
+## Git Workflow
+
+After completing every feature or fix, commit and push to `origin/main`. Do not batch multiple features into one commit.
+
+Commit message format: short imperative subject line, with a blank line and bullet points for non-obvious details if needed. Example:
+```
+Add overdue highlight to plant cards
+
+- Applies .overdue class when next_due < now
+- Never-watered plants are always treated as overdue
+```
+
 ## Key Constraints
 
 - `better-sqlite3` requires the Windows SDK and MSVC build tools to compile its native addon — both are installed on this machine
 - `plants.db` is gitignored (user data stays local)
-- After completing any feature or fix, commit and push to `origin/main`
